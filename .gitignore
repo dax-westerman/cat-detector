@@ -6,4 +6,6 @@
 
 # Datasets
 data/cifar10/cifar-10-batches-py/
-data/voc2012/VOC2012/
+data/voc2012/*
+data/test
+
