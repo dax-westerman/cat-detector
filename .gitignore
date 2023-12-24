@@ -10,4 +10,5 @@ data/voc2012/
 results/
 report/
 .venv/
+**/.test_images/*
 
