@@ -5,7 +5,9 @@
 *.pyc
 
 # Datasets
-data/cifar10/cifar-10-batches-py/
-data/voc2012/*
-data/test
+data/test/
+data/voc2012/
+results/
+report/
+.venv/
 

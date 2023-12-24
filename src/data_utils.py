@@ -5,7 +5,7 @@
 #
 # Author: Fahim Dalvi
 
-import cPickle
+import _pickle as cPickle
 import dlib
 import numpy as np
 import os

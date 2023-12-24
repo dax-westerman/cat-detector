@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "cat-detector"
+version = "0.1.0"
+description = ""
+authors = ["dax-westerman <daxwesterman@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+dlib = "^19.24.2"
+keras = "^3.0.0"
+numpy = "^1.26.2"
+pillow = "^10.1.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
