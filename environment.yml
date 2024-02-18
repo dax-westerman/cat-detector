@@ -1,4 +1,5 @@
 name: cat_detection_env
+
 channels:
   - conda-forge
   - defaults

@@ -1,13 +1,13 @@
 from itertools import chain
-
-import os
 from transformers import pipeline
+import os
 import glob
 from pprint import pprint
 import atexit
 import cv2 as cv
 import numpy as np
 from PIL import Image, ImageDraw
+import random
 
 IMAGE_PATH = (
     "/home/dax/dev/cat-detector/.test_images/non_cat_images/20200625_090958.jpg"
@@ -46,11 +46,12 @@ def check_for_cat(show_image, detector, img_path):
     predictions = detector(
         image,
         candidate_labels=[
-            "cat",
+            "cat"
         ],  # noqa
     )
 
     if len(predictions) > 0:
+        print(f'Cat found in {img_path}')
         pprint(predictions)
 
         draw = ImageDraw.Draw(image)
@@ -61,13 +62,18 @@ def check_for_cat(show_image, detector, img_path):
             score = prediction["score"]
 
             xmin, ymin, xmax, ymax = box.values()
-            draw.rectangle((xmin, ymin, xmax, ymax), outline="red", width=1)
+            draw.rectangle((xmin, ymin, xmax, ymax), outline="red", width=10)
             draw.text((xmin, ymin), f"{label}: {round(score, 2)}", fill="white")  # noqa
 
         show_image(image)
 
+    else:
+        print(f'Cat NOT found in {img_path}')
 
-for img_path in glob.glob(
-    "/home/dax/dev/cat-detector/.test_images/**/*.jpg", recursive=True
-):  # noqa
+image_list = glob.glob(
+    "C:/dev/cat-detector/.test_images/**/*.jpg", recursive=True
+)
+random_image_list = random.sample(image_list, len(image_list))
+
+for img_path in random_image_list:  # noqa
     check_for_cat(show_image, detector, img_path)

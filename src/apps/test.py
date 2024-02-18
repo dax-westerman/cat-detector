@@ -10,7 +10,7 @@ from PIL import Image
 from PIL import ImageDraw
 from keras.models import load_model
 
-from data_utils import *
+from apps.data_utils import *
 import keras
 
 import os

@@ -9,7 +9,7 @@ import numpy as np
 import os
 import sys
 
-from data_utils import *
+from apps.data_utils import *
 from keras.layers import Conv2D, MaxPooling2D
 from keras.layers import Dense, Dropout, Activation, Flatten
 from keras.models import Sequential
