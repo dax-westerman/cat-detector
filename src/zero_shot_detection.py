@@ -37,7 +37,7 @@ detector = pipeline(model=checkpoint, task="zero-shot-object-detection")
 
 
 def check_for_cat(show_image, detector, img_path):
-    print(f'Checking {img_path}')
+    print(f"Checking {img_path}")
     if not os.path.isfile(img_path):
         return
     image = Image.open(img_path)  # noqa
@@ -45,13 +45,11 @@ def check_for_cat(show_image, detector, img_path):
 
     predictions = detector(
         image,
-        candidate_labels=[
-            "cat"
-        ],  # noqa
+        candidate_labels=["cat"],  # noqa
     )
 
     if len(predictions) > 0:
-        print(f'Cat found in {img_path}')
+        print(f"Cat found in {img_path}")
         pprint(predictions)
 
         draw = ImageDraw.Draw(image)
@@ -68,11 +66,10 @@ def check_for_cat(show_image, detector, img_path):
         show_image(image)
 
     else:
-        print(f'Cat NOT found in {img_path}')
+        print(f"Cat NOT found in {img_path}")
 
-image_list = glob.glob(
-    "C:/dev/cat-detector/.test_images/**/*.jpg", recursive=True
-)
+
+image_list = glob.glob("C:/dev/cat-detector/.test_images/**/*.jpg", recursive=True)
 random_image_list = random.sample(image_list, len(image_list))
 
 for img_path in random_image_list:  # noqa
