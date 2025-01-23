@@ -13,3 +13,5 @@ report/
 # **/.test_images/*
 
 .conda/
+.models/owlvit
+
